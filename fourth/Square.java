@@ -1,27 +1,27 @@
 package fourth;
 
 public class Square extends Rectangle{
-    Square(){}
-    Square(double side){
+    public Square(){}
+    public Square(double side){
         this.length = side;
     }
-    Square(double side, String color, boolean filled){
+    public Square(double side, String color, boolean filled){
         this.length = side;
         this.color = color;
         this.filled = filled;
     }
 
-    double getSide(){
+    public double getSide(){
         return length;
     }
-    void setSide(double side){
+    public void setSide(double side){
         this.length = side;
     }
 
-    void setWidth(double side){
+    public void setWidth(double side){
         super.setWidth(side);
     }
-    void setLength(double side){
+    public void setLength(double side){
         super.setLength(side);
     }
     public String toString(){

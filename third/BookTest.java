@@ -1,4 +1,4 @@
-package third;
+package _3;
 
 class Book{
     String author;

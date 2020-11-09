@@ -5,36 +5,7 @@ import java.awt.event.*;
 public class Second {
 
     static class MyButton {
-        JButton jButton;
-        String name;
-        JFrame jFrame;
-
-        private void addButtons() {
-            switch (name.charAt(0)) {
-                case ('С'):
-                    jFrame.add(jButton, BorderLayout.NORTH);
-                    break;
-                case ('В'):
-                    jFrame.add(jButton, BorderLayout.EAST);
-                    break;
-                case ('Ю'):
-                    jFrame.add(jButton, BorderLayout.SOUTH);
-                    break;
-                case ('З'):
-                    jFrame.add(jButton, BorderLayout.WEST);
-                    break;
-                case ('Ц'):
-                    jFrame.add(jButton, BorderLayout.CENTER);
-                    break;
-
-            }
-        }
-
-        MyButton(JFrame jFrame, String name, JButton jButton) {
-            this.name = name;
-            this.jButton = jButton;
-            this.jFrame = jFrame;
-
+        MyButton(JFrame jFrame, String name, JButton jButton, String borderLayout) {
             jButton.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent e) {
@@ -42,7 +13,7 @@ public class Second {
                 }
             });
 
-            this.addButtons();
+            jFrame.add(jButton, borderLayout);
         }
     }
 
@@ -59,14 +30,15 @@ public class Second {
         JFrame jFrame = getDefaultFrame();
         JPanel jPanel = new JPanel();
         jFrame.add(jPanel);
-        MyButton[] myButtons = new MyButton[]{new MyButton(jFrame, "САО", new JButton("САО")),
-                new MyButton(jFrame, "ВАО", new JButton("ВАО")),
-                new MyButton(jFrame, "ЮАО", new JButton("ЮАО")),
-                new MyButton(jFrame, "ЗАО", new JButton("ЗАО")),
-                new MyButton(jFrame, "ЦАО", new JButton("ЦАО"))
+        MyButton[] myButtons = new MyButton[]{new MyButton(jFrame, "САО", new JButton("САО"), BorderLayout.NORTH),
+                new MyButton(jFrame, "ВАО", new JButton("ВАО"), BorderLayout.EAST),
+                new MyButton(jFrame, "ЮАО", new JButton("ЮАО"), BorderLayout.SOUTH),
+                new MyButton(jFrame, "ЗАО", new JButton("ЗАО"), BorderLayout.WEST),
+                new MyButton(jFrame, "ЦАО", new JButton("ЦАО"), BorderLayout.CENTER)
         };
 
         jFrame.setVisible(true);
 
     }
 }
+
